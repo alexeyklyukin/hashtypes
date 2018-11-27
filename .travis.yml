@@ -1,15 +1,6 @@
 sudo: required
 dist: xenial
 language: c
-before_install:
-- |
-  set -e
-  # only add PGDG repositories when PostgreSQL is not installed by default  
-  if [[ $POSTGRESQL == "9.3" || $POSTGRESQL == "11" ]]; then
-     sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-     curl -s -o - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-     sudo apt-get update
-  fi
 matrix:
    include:
      - addons: 
